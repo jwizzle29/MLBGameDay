@@ -49,7 +49,7 @@ class MLBData {
                 "balls"=> $game->status->balls, 
                 "strikes" => $game->status->strikes,
                 "inning_state" => $game->status->inning_state,
-                "inning_status" => $game->status->inning,
+                "inning" => $game->status->inning,
                 "innings" => $linescores
             ];
             array_push($game_data, $arr);

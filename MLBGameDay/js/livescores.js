@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//CreateTable();
+readData();
 setInterval(function(){ 
     CreateTable();
     readData();
@@ -27,13 +29,28 @@ async function readData(){
 function success(data){
     rdata = JSON.parse(data);
     console.log(rdata);
-    //length = rdata.length
-    //for(var i = 0; i <= (length - 1); i++){
+    length = rdata.length
+    //for(var i = 0; i <= length; i++){
     //    console.log(rdata[i]);
+        //createBlock();
     //}
     //$("#data").html(rdata);
     ClearTable();
     FillTable(rdata);
+}
+
+function createBlock(){
+    //background-color: #2B3644;
+    var wrapper = document.querySelector(".data");
+    var maindiv = document.createElement('div');
+    var hometeamnamediv = document.createElement('div');
+    var awayteamnamediv = document.createElement('div');
+    var span = document.createElement('span');
+    
+    maindiv.appendChild(hometeamnamediv);
+    maindiv.appendChild(awayteamnamediv);
+    maindiv.appendChild(span);
+    wrapper.appendChild(maindiv);
 }
 
 function fail(){
@@ -79,14 +96,14 @@ function FillTable(list){
     tableValues[4] = {"Name" : "strikes", "class" : ""};
     tableValues[5] = {"Name" : "inning_state", "class" : ""};
     tableValues[6] = {"Name" : "inning_status", "class" : ""};
-    //tableValues[7] = {"Name" : "innings", "class" : ""};
+    tableValues[7] = {"Name" : "inning", "class" : ""};
     
     var tds = {};
     tds[0] = {"Name" : "", "class" : "altec-form-control"};
 
     for(var i = 0; i <= (length - 1); i++){
         var tr = tbl.insertRow();
-        for(var x = 0; x <= 6; x++){
+        for(var x = 0; x <= 7; x++){
             if(x == 6){
                 /*var td = tr.insertCell();
                 var span = document.createElement('span');
@@ -97,12 +114,13 @@ function FillTable(list){
             }else{
                 var td = tr.insertCell();
                 var input = document.createElement('input');
-                input.setAttribute("id", list.game_status);
-                input.onblur = update;
+                var str = list[i].home_team_name + list[i].away_team_name;
+                //input.setAttribute("id", str);
+                //input.onblur = update;
                 input.setAttribute("Value", list[i][tableValues[x].Name]);
-                input.setAttribute("class", tds[0].class);
+                input.setAttribute("class", str);
                 td.appendChild(input);
-                td.setAttribute("class", tableValues[x]["class"]);    
+                td.setAttribute("class", tableValues[x]["class"]);
             }
         }
     }

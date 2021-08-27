@@ -13,6 +13,7 @@ if($func == "navigate"){
     $router = new App\Core\Router();
     $content = $router->getContent($route);
     echo $content;
+    exit;
 }
 else if($func =="fetch"){
     $route = $_POST['route'];
@@ -21,4 +22,5 @@ else if($func =="fetch"){
         $mlbData = new App\Api\MLBData($apiurl);
         echo json_encode($mlbData->retrieveData());
     }
+    exit;
 }

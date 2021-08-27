@@ -46,10 +46,10 @@ class MLBData {
                 "away_team_name" => $game->away_team_name,
                 "home_team_name" => $game->home_team_name,
                 "game_status"=> $game->status->status, 
-                 "balls"=> $game->status->balls, 
-                 "strikes" => $game->staus->strikes,
-                 "inning_state" => $game->status->inning_state,
-                 "inning_status" => $game->status->inning,
+                "balls"=> $game->status->balls, 
+                "strikes" => $game->status->strikes,
+                "inning_state" => $game->status->inning_state,
+                "inning_status" => $game->status->inning,
                 "innings" => $linescores
             ];
             array_push($game_data, $arr);

@@ -3,8 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-CreateTable();
-readData();
+setInterval(function(){ 
+    CreateTable();
+    readData();
+}, 5000);
 
 async function readData(){
     $.ajax({
@@ -21,9 +23,10 @@ async function readData(){
         error    : fail
 });
 }
+
 function success(data){
     rdata = JSON.parse(data);
-    //console.log(rdata);
+    console.log(rdata);
     //length = rdata.length
     //for(var i = 0; i <= (length - 1); i++){
     //    console.log(rdata[i]);
@@ -46,11 +49,11 @@ function CreateTable(){
     tableHeaders[3] = {"Name" : "Balls", "class" : ""};
     tableHeaders[4] = {"Name" : "Strikes", "class" : ""};
     tableHeaders[5] = {"Name" : "inning state", "class" : ""};
-    tableHeaders[6] = {"Name" : "inning status", "class" : ""};
+    //tableHeaders[6] = {"Name" : "inning status", "class" : ""};
     
     var wrapper = document.querySelector(".data");
     var tr = document.createElement('tr'); 
-    for(var i = 0; i <= 6; i++){
+    for(var i = 0; i <= 5; i++){
         var th = document.createElement('th');
         var k = document.createTextNode(tableHeaders[i]['Name']);
         th.appendChild(k);
@@ -76,7 +79,7 @@ function FillTable(list){
     tableValues[4] = {"Name" : "strikes", "class" : ""};
     tableValues[5] = {"Name" : "inning_state", "class" : ""};
     tableValues[6] = {"Name" : "inning_status", "class" : ""};
-    tableValues[7] = {"Name" : "innings", "class" : ""};
+    //tableValues[7] = {"Name" : "innings", "class" : ""};
     
     var tds = {};
     tds[0] = {"Name" : "", "class" : "altec-form-control"};

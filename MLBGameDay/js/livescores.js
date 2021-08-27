@@ -78,6 +78,7 @@ function CreateTable(){
     }
     tbl.setAttribute("id", "mlb-data-table");
     tbl.setAttribute("class", "table-striped");
+    tbl.setAttribute("style", "display:none");
     tbl.appendChild(tr);
     wrapper.appendChild(tbl);
 }
@@ -88,6 +89,7 @@ function FillTable(list){
     
     var length = list.length;
     var tbl  = document.querySelector('#mlb-data-table');
+    tbl.setAttribute("style", "");
     var tableValues = {};
     tableValues[0] = {"Name" : "home_team_name", "class" : "hidden"};
     tableValues[1] = {"Name" : "away_team_name", "class" : "hidden"};
@@ -99,7 +101,7 @@ function FillTable(list){
     tableValues[7] = {"Name" : "inning", "class" : ""};
     
     var tds = {};
-    tds[0] = {"Name" : "", "class" : "altec-form-control"};
+    tds[0] = {"Name" : "", "class" : ""};
 
     for(var i = 0; i <= (length - 1); i++){
         var tr = tbl.insertRow();
